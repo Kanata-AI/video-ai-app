@@ -1,44 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>AI Video Generator Pro</title>
+  <meta charset="UTF-8">
+  <title>AI Video Generator</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .box {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      background: #22c55e;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+  </style>
 </head>
 <body>
 
-<h2>🎬 AI Video Generator</h2>
+  <h1>🎬 AI Video Generator</h1>
 
-<textarea id="prompt" style="width:320px;height:120px;"></textarea>
+  <div class="box">
+    <textarea placeholder="Masukkan prompt video..."></textarea>
 
-<br><br>
+    <select>
+      <option>720p</option>
+      <option>1080p</option>
+    </select>
 
-<button onclick="generate()">🚀 Generate Video</button>
+    <select>
+      <option>2 detik</option>
+      <option>4 detik</option>
+      <option>6 detik</option>
+      <option>8 detik</option>
+      <option>10 detik</option>
+      <option>12 detik</option>
+    </select>
 
-<script>
+    <button onclick="goToOpal()">Generate Video</button>
+  </div>
 
-// 🔥 AUTO AMBIL DARI LINK
-const urlParams = new URLSearchParams(window.location.search);
-const promptFromURL = urlParams.get("prompt");
-
-if (promptFromURL) {
-  document.getElementById("prompt").value = decodeURIComponent(promptFromURL);
-}
-
-function generate() {
-  const prompt = document.getElementById("prompt").value;
-
-  if (!prompt) {
-    alert("Prompt kosong bro!");
-    return;
-  }
-
-  navigator.clipboard.writeText(prompt);
-
-  window.open("https://app.runwayml.com/", "_blank");
-
-  alert("✅ Prompt siap → paste di Runway → generate → download");
-}
-
-</script>
+  <script>
+    function goToOpal() {
+      window.open("https://opal.google/app/1P68W9NQi0TIBDy_vl02kyhav5BuLUnD9", "_blank");
+    }
+  </script>
 
 </body>
 </html>
