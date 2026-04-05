@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Video Generator Pro</title>
+</head>
+<body>
+
+<h2>🎬 AI Video Generator</h2>
+
+<textarea id="prompt" style="width:320px;height:120px;"></textarea>
+
+<br><br>
+
+<button onclick="generate()">🚀 Generate Video</button>
+
+<script>
+
+// 🔥 AUTO AMBIL DARI LINK
+const urlParams = new URLSearchParams(window.location.search);
+const promptFromURL = urlParams.get("prompt");
+
+if (promptFromURL) {
+  document.getElementById("prompt").value = decodeURIComponent(promptFromURL);
+}
+
+function generate() {
+  const prompt = document.getElementById("prompt").value;
+
+  if (!prompt) {
+    alert("Prompt kosong bro!");
+    return;
+  }
+
+  navigator.clipboard.writeText(prompt);
+
+  window.open("https://app.runwayml.com/", "_blank");
+
+  alert("✅ Prompt siap → paste di Runway → generate → download");
+}
+
+</script>
+
+</body>
+</html>
